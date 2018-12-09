@@ -1,0 +1,30 @@
+<div class="card"  *ngIf="show" @plotTrigger>
+  <div class="card-body">
+
+    <h5 class="card-title">{{point.name}}</h5>
+    <div class="card-subtitle text-info"><h6>Description</h6>
+     <p class="card-text text-dark">{{point.description}}</p>
+      <div class="card-subtitle text-info"><h6>Sequence</h6>
+    <p class="card-text text-dark"> {{point.sequence}}</p>
+        <div class="card-subtitle text-info"><h6>Follows</h6>
+        <p class="card-text text-dark"> {{point.follows}}</p>
+    <div class="card-subtitle text-info"><h6>Thread</h6>
+      <p class="text-dark">{{point.thread}}</p>
+    </div>
+    <a   (click)="editMode()" class="card-link">{{mode}}</a>
+    <a  (click)="nextPoint(point)" class="card-link">Next point</a>
+    <a   (click)="delete()" class="card-link">Delete</a>
+  </div>
+</div>
+
+<div *ngIf="editing">
+  <form #item="ngForm">
+   ID: <input type="text" name="id" id="id" class="form-control" placeholder="id"[(ngModel)]="point.id">
+    Name: <input type="text" name="name" id="name" class="form-control" placeholder="name"[(ngModel)]="point.name">
+    Description:<textarea  name="description" id="description" class="form-control" placeholder="description"[(ngModel)]="point.description"></textarea>
+   Sequence: <input type="text" name="sequence" id="sequence" class="form-control" placeholder="sequence"[(ngModel)]="point.sequence">
+    Follows:<input type="text" name="follows" id="follows" class="form-control" placeholder="follows"[(ngModel)]="point.follows">
+    Thread:<input type="text" name="thread" id="thread" class="form-control" placeholder="thread"[(ngModel)]="point.thread">
+
+  </form>
+</div>

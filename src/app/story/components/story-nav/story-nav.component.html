@@ -1,0 +1,77 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul *ngIf="currentStory" class="navbar-nav">
+
+
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/story/scenes']">Scenes</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/story/plot']">Plot</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/story/narrative']">Narrative</a>
+      </li>
+
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/story/drivers']">Drivers</a>
+      </li>
+    </ul>
+    <ul *ngIf="bartype === 'story'" class="navbar-nav">
+
+    <li class="nav-item ">
+      <a class="nav-link text-success" (click)="creates()" >New Story</a>
+    </li>
+
+  </ul>
+    <ul *ngIf="bartype === 'story'" class="navbar-nav">
+
+      <li class="nav-item ">
+        <a class="nav-link text-success" (click)="confirmDelete()">Update</a>
+      </li>
+
+    </ul>
+
+    <ul *ngIf="bartype === 'scene'"class="navbar-nav">
+
+      <li class="nav-item ">
+        <a class="nav-link text-success" (click)="creates()" >New Scene</a>
+      </li>
+
+    </ul>
+
+    <ul *ngIf="bartype === 'plot'" class="navbar-nav">
+
+      <li class="nav-item ">
+        <a class="nav-link text-success" (click)="creates()" >New Plotline</a>
+      </li>
+
+    </ul>
+
+    <ul *ngIf="bartype === 'narrative'" class="navbar-nav">
+
+      <li class="nav-item ">
+        <a class="nav-link text-success" (click)="creates()" >New Narrative</a>
+      </li>
+
+    </ul>
+    <ul *ngIf="bartype === 'thing'" class="navbar-nav">
+
+      <li class="nav-item ">
+        <a class="nav-link text-success" (click)="creates()" >New Driver</a>
+      </li>
+
+    </ul>
+    <ul *ngIf="currentStory" class="navbar-nav">
+
+      <li class="nav-item mx-5">
+        <a class="nav-link " >Current Story: {{currentStory.title}}</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>

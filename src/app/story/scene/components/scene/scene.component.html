@@ -1,0 +1,79 @@
+<div *ngIf="show" class="card" [@sceneTrigger]>
+  <h4 class="card-title" bt-4>Scene Detail View</h4>
+  <button type="button" class="btn btn-primary"(click)="saveScene()">Update</button>
+  <div class="card-body">
+  <form #admin="ngForm">
+    <div class="row">
+      <div class="col-md-2">
+        <label for="sequence">Sequence</label>
+        <input type="text" class="form-control" id="sequence" name="sequence" [(ngModel)]="scene.sequence">
+      </div>
+      <div class="col-md-4">
+        <label for="start">Start</label>
+        <input type="text" class="form-control" id="start" name="start" [(ngModel)]="scene.start">
+      </div>
+      <div class="col-md-2">
+        <label for="duration">Duration</label>
+        <input type="number" class="form-control" id="duration" name="duration" [(ngModel)]="scene.duration">
+      </div>
+      <div class="col-md-4">
+        <label for="duration">Unit</label>
+        <input type="text" class="form-control" id="unit" name="unit" [(ngModel)]="scene.unit">
+      </div>
+    </div>
+    <div class="row py-4">
+      <div class="col-md-6">
+        <label for="goal">Goal</label>
+        <textarea  class="form-control" id="goal" name="goal" [(ngModel)]="scene.goal"></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <label for="purpose">Purpose</label>
+
+        <textarea  class="form-control" id="purpose" name="purpose"  [(ngModel)]="scene.purpose"></textarea>
+      </div>
+    </div>
+
+
+    <section id="location">
+
+
+          <div class="row">
+
+
+              <label for="lid">Location Name</label>
+              <input type="text" class="form-control" id="lid" name="id" [(ngModel)] ="scene.location">
+
+          </div>
+
+
+
+
+    </section>
+    <section class="row" id="narrative">
+
+
+          <label for="narr">Narrative</label>
+      <textarea id="narr" name="narrative" class="form-control" rows="10"[(ngModel)]="scene.narrative"></textarea>
+      <!--<div class="textarea" contenteditable="true">{{scene.narrative}}</div>-->
+          <!--&lt;!&ndash;<div  id="narr" name="narrative" class="form-control" rows="10"[(ngModel)]="scene.narrative"></div>&ndash;&gt;-->
+
+
+    </section>
+
+
+
+
+
+  </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<div class="container" [@boxTrigger]>
+
+
+<div class='row' >
+  <div class='col-md-4'>
+    <app-plot-list [pointList]="pointList"
+    (selectedPoint)="showSelected($event)"></app-plot-list>
+  </div>
+  <div class='col-md-8'>
+    <app-plot-point
+      [point]="selectedPlot"
+      [show]="!!selectedPlot"
+      (save)="savePlot($event)"
+      (remove)="deletePlot($event)"
+      (next)="newPlot($event)"
+    ></app-plot-point>
+  </div>
+</div>
+</div>

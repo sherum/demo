@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <tr>
+
+    <th scope="col">Title </th>
+
+  </tr>
+  </thead>
+  <tbody class="stories">
+  <tr [class.selected]="story === currentStory" *ngFor="let story of storyList"
+      [@listTrigger] (click)="select(story)">
+    <td class="text-primary">{{story.title}}</td>
+    <td class="text-danger" (click)="deleteStory(story)">X</td>
+  </tr>
+  </tbody>
+</table>

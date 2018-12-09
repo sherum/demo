@@ -1,0 +1,19 @@
+
+<table class="table" [@listTrigger]>
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">sequence</th>
+    <th scope="col">Name</th>
+    <th scope="col">Thread</th>
+  </tr>
+  </thead>
+  <tbody class="plots">
+  <tr [class.selected]="plot=== currentPlot"  *ngFor="let plot of pointList.points" [@listTrigger] (click)="select(plot)">
+    <td>{{plot.id}}</td>
+    <td>{{plot.sequence}}</td>
+    <td>{{plot.name}}</td>
+    <td>{{plot.thread}}</td>
+  </tr>
+  </tbody>
+</table>
