@@ -1,0 +1,31 @@
+<app-story-nav
+  [story]="!!selectedStory"
+  (create)="create($event)"
+  (save)="saveStory()"
+  (update)="saveStory()"
+></app-story-nav>
+
+
+<!--</div>-->
+<!--&lt;!&ndash;<div class='row'>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div class='col-md-2'>&ndash;&gt;-->
+    <!--&lt;!&ndash;<app-story-list [storyList]="storyList"></app-story-list>&ndash;&gt;-->
+    <!--&lt;!&ndash;(selectedStory)="showSelected($event)"&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!---->
+<!--</div>-->
+
+<router-outlet></router-outlet>
+<button  type="button" class=" btn-small btn-outline-secondary" [routerLink]="['/story/list']">Back to Story List</button>
+  <!--<div class='col-md-10'>-->
+    <!--<app-story-->
+      <!--[story]="selectedStory"-->
+      <!--[show]="!!selectedStory"-->
+      <!--(save)="saveStory($event)"-->
+      <!--(remove)="deleteStory($event)"-->
+      <!--(next)="addStory()"-->
+    <!--&gt;</app-story>-->
+  <!--</div>-->
+<!--</div>-->
+
+

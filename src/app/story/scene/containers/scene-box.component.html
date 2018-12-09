@@ -1,0 +1,28 @@
+
+
+<div class='col-md-12'>
+  <div class='row px-2'>
+    <app-scene-list [sceneList]="sceneList"
+                    (deleteScene)="deleteScene($event)"
+                    (selectedScene)="showSelected($event)">
+    </app-scene-list>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="row px-2">
+    <app-scene
+      class = "selected"
+      [scene]="selectedScene"
+      [show]="(!!selectedScene) && (!showNarrative)"
+
+      (next)="addScene()"
+    ></app-scene>
+  </div>
+</div>
+
+<!--<div>-->
+  <!--<app-narrative  (save)="saveScene($event)"
+-->
+    <!--[showNarrative]="showNarrative"-->
+    <!--(toggle)="toggleNarrative()"></app-narrative>-->
+<!--</div>-->

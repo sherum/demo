@@ -1,0 +1,19 @@
+<div class="header">
+  <h3>Login</h3>
+</div>
+  <form #authform = "ngForm"
+  (ngSubmit)="signOn()">
+    <label for="userid">User Name</label>
+    <input type="text" id="userid" name="username" class="form-control" [(ngModel)]="authform.username">
+    <label for="keyword">Password</label>
+    <input type="password" id="keyword" name="secretkey" class="form-control" [(ngModel)]="authform.secretkey">
+    <button type="submit" class="btn btn-outline-primary m-1">Submit</button>
+    <button type="reset" class="btn btn-outline-warning m-1">Reset</button>
+    <div class="row">
+
+      <!--<a href="#" class="nav-link">Twitter</a>-->
+      <!--<a href="#" class="nav-link">Facebook</a>-->
+      <!--<a href="#" class="nav-link">Yahoo</a>-->
+
+    </div>
+  </form>

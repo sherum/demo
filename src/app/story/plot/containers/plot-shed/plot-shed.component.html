@@ -1,0 +1,32 @@
+<div class="container">
+  <!--<app-plot-nav  (save)="savePlot()"  (create)="addThread()"></app-plot-nav>-->
+
+
+</div>
+<div class="col-md-3">
+<table class="table">
+  <thead>
+  <tr>
+    <th>Plot Line</th>
+    <th scope="col"></th>
+
+  </tr>
+  </thead>
+  <tbody class="plotting">
+  <tr [class.selected]="p === selectedPlotLine" *ngFor="let p of plotWeb;index as i">
+    <td> <a class="nav-link" (click)="select(p)">{{p.name}}</a></td>
+    <td><a class="nav-link text-danger" (click)="delete(p)">X</a></td>
+    <td *ngIf="selectedPlotLine"><a class="nav-link text-info" (click)="edit(p)">Edit</a></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div *ngIf="editName" class="col-md-4">
+  <form #plotLineName ="ngForm">
+    <input type="text"  class="form-control" (keydown.enter)="edit()" name="name" [(ngModel)]="selectedPlotLine.name">
+  </form>
+</div>
+<div *ngIf="selectedPlotLine">
+<app-plot-box [pointList]="currentPlots"></app-plot-box>
+</div>
+
