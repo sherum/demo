@@ -1,0 +1,17 @@
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let thing of thingList"
+        [@listTrigger] (click)="select(thing)">
+      <td>{{thing.name}}</td>
+      <td>{{thing.location}}</td>
+    </tr>
+    </tbody>
+  </table>
+

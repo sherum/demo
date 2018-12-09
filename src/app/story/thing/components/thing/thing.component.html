@@ -1,0 +1,24 @@
+
+  <div class="card"  *ngIf="show" @thingTrigger>
+    <div class="card-body">
+      <h5 class="card-title">{{thing.name}}</h5>
+      <p class="card-text">{{thing.description}}</p>
+      <div class="card-subtitle"><h5>Location</h5>
+        <p>{{thing.location}}</p>
+      </div>
+      <a   (click)="editMode()" class="card-link">{{mode}}</a>
+      <a   (click)="delete()" class="card-link">Delete</a>
+    </div>
+    </div>
+
+  <div *ngIf="editing">
+    <form #item="ngForm">
+      <input type="text" name="name" id="name" class="form-control" [(ngModel)]="thing.name">
+      <textarea  name="description" id="description" class="form-control" [(ngModel)]="thing.description"></textarea>
+
+
+      <input type="text" name="location" id="location" class="form-control" [(ngModel)]="thing.location">
+
+    </form>
+  </div>
+

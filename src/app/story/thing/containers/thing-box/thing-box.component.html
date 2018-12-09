@@ -1,0 +1,22 @@
+
+
+
+
+
+
+<div class='row'>
+  <div class='col-md-4'>
+    <app-thing-list
+      [thingList]="thingList"
+      (selectedThing)="showSelected($event)"
+    ></app-thing-list>
+  </div>
+  <div class='col-md-8'>
+    <app-thing
+      [thing]="selectedThing"
+      [show]="!!selectedThing"
+      (save)="saveThing($event)"
+      (remove)="deleteThing($event)"
+    ></app-thing>
+  </div>
+</div>
