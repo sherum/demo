@@ -1,5 +1,6 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -16,9 +17,7 @@
         <a class="nav-link" [routerLink]="['/story/narrative']">Narrative</a>
       </li>
 
-      <li  class="nav-item">
-        <a class="nav-link" [routerLink]="['/story/drivers']">Drivers</a>
-      </li>
+
     </ul>
     <ul *ngIf="bartype === 'story'" class="navbar-nav">
 
@@ -58,13 +57,13 @@
       </li>
 
     </ul>
-    <ul *ngIf="bartype === 'thing'" class="navbar-nav">
+    <!--<ul *ngIf="bartype === 'thing'" class="navbar-nav">-->
 
-      <li class="nav-item ">
-        <a class="nav-link text-success" (click)="creates()" >New Driver</a>
-      </li>
+      <!--<li class="nav-item ">-->
+        <!--<a class="nav-link text-success" (click)="creates()" >New Driver</a>-->
+      <!--</li>-->
 
-    </ul>
+    <!--</ul>-->
     <ul *ngIf="currentStory" class="navbar-nav">
 
       <li class="nav-item mx-5">
@@ -74,4 +73,5 @@
     </ul>
 
   </div>
-</nav>
+  </nav>
+</div>

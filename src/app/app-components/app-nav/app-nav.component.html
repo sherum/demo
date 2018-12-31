@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav  *ngIf="!isLoggedIn" class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" [routerLink]="['/']" >Writer Sauce</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,37 +10,93 @@
         <a class="nav-link" [routerLink]="['/home']" >Home <span class="sr-only">(current)</span></a>
       </li>
 
-      <li *ngIf="!loggedIn || home" class="nav-item">
+      <li  class="nav-item">
         <a class="nav-link" [routerLink]="['/about']" >About</a>
       </li>
-      <li *ngIf="false"class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['/products']" >Products</a>
       </li>
-      <li *ngIf="false" class="nav-item">
+      <li  class="nav-item">
         <a class="nav-link" [routerLink]="['/developer']" >Developer</a>
       </li>
 
 
-      <li *ngIf="loggedIn" class="nav-item">
-      <a class="nav-link" [routerLink]="['/story']" >Story</a>
-    </li>
-      <li *ngIf="false" class="nav-item">
+      <!--<li  *ngIf="isLoggedIn" class="nav-item">-->
+      <!--<a class="nav-link" [routerLink]="['/story']" >Story</a>-->
+    <!--</li>-->
+      <!--<li *ngIf="isLoggedIn" class="nav-item">-->
+      <!--<a class="nav-link" [routerLink]="['/domain']" >Habitual Domains</a>-->
+      <!--</li>-->
+      <!--<li  *ngIf="isLoggedIn" class="nav-item">-->
+      <!--<a class="nav-link" [routerLink]="['/lead']" >Lead Characters</a>-->
+      <!--</li>-->
+
+      <li   class="nav-item">
+        <a class="nav-link" [routerLink]="['/tos']" >Terms and Conditions</a>
+      </li>
+      <li   class="nav-item">
+        <a class="nav-link" [routerLink]="['/privacy']">Privacy</a>
+      </li>
+
+      <li    class="nav-item">
+        <a class="nav-link " [routerLink]="['/development']" >BETA RELEASE NOTICE</a>
+      </li>
+      <button
+        class="btn btn-outline-success btn-margin mx-4"
+
+        (click)="login()">
+        Log In
+      </button>
+
+      </ul>
+  </div>
+</nav>
+<hr>
+
+
+<nav  *ngIf="isLoggedIn" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/']" >Writer Sauce</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="authnavbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']" >Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']" >About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']" >Products</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link" [routerLink]="['/developer']" >Developer</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/story']" >Story</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['/domain']" >Habitual Domains</a>
       </li>
-      <li *ngIf="false" class="nav-item">
+      <li  class="nav-item">
         <a class="nav-link" [routerLink]="['/lead']" >Lead Characters</a>
       </li>
-      <li *ngIf="!loggedIn" >
-        <a class="nav-link" [routerLink]="['/login']" >Login</a>
-      </li>
-      <li *ngIf="loggedIn">
-        <a class="nav-link" [routerLink]="['/login']" >Logout</a>
+
+
+      <button
+        class="btn btn-primary btn-margin ml-3"
+        (click)="logout()">Log Out</button>
+
+      <li  class="nav-item ml-4">
+        <a class="nav-link"  >ACTIVE USER: name@email.com</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
   </div>
 </nav>
 <hr>

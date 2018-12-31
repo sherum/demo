@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IScene} from '../../model/scene';
 import {FormControl} from '@angular/forms';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {IThing} from '../../../thing/model/thing';
 
 
 @Component({
@@ -20,27 +21,30 @@ import {animate, style, transition, trigger} from '@angular/animations';
   ]
 })
 export class SceneComponent {
-  
-  @Input() show:boolean = false;
-  @Input() scene:IScene = null;
 
-  @Output() save:EventEmitter<IScene> = new EventEmitter<IScene>();
-  @Output() remove:EventEmitter<IScene> = new EventEmitter<IScene>();
-
-  purposeControl:FormControl;
-  narrativeControl:FormControl;
+  @Input() show: boolean = false;
+  @Input() scene: IScene = null;
+   showThingButton: boolean = true;
+  @Output() save: EventEmitter<IScene> = new EventEmitter<IScene>();
+  @Output() remove: EventEmitter<IScene> = new EventEmitter<IScene>();
+  @Output() newthing: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 
+  purposeControl: FormControl;
+  narrativeControl: FormControl;
 
-  saveScene(){
+
+  saveScene() {
     this.save.emit(this.scene);
   }
 
-  deleteScene(scene){
+  deleteScene(scene) {
     this.remove.emit(scene);
   }
 
 
-
-
+  addThing(val:boolean) {
+    this.showThingButton = !this.showThingButton;
+    this.newthing.emit(val);
+  }
 }

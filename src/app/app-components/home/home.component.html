@@ -1,6 +1,22 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.4.1/oidc-client.min.js"></script>
+<script>
+  var config = {
+    userStore: new Oidc.WebStorageStateStore({ store: window.localStorage })
+  };
+  var mgr = new Oidc.UserManager(config);
+  mgr.signinRedirectCallback().then(() => {
+    window.history.replaceState({},
+      window.document.title,
+      window.location.origin);
+    window.location = "/";
+  }, error => {
+    console.error(error);
+  });
+
+</script>
 
 
-    <div class="container">
+<div class="container">
 
 
       <div class="row">
@@ -10,7 +26,7 @@
 
         <h1>Writer's Sauce</h1>
         <p class="lead">Make your writing better by adding some sauce.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Test drive it now</a></p>
+        <p><a class="btn btn-lg btn-primary text-light" (click)="testDrive()" role="button">Start writing now</a></p>
       </div>
 
       </div>

@@ -1,19 +1,55 @@
-<div class="header">
-  <h3>Login</h3>
+<h3>Login</h3>
+<!--<div id="firebaseui-auth-container"></div>-->
+<!--<div id="sign-in-status"></div>-->
+<!--<div id="sign-in"></div>-->
+<!--<div id="account-details"></div>-->
+<div *ngIf="!isLoggedIn()" class="container">
+  <!--<div class="row">-->
+
+
+    <!--<div class="card-block">-->
+
+      <!--<form >-->
+        <!--<h3 align="center">Login Form</h3>-->
+        <!--<div class="form-group">-->
+          <!--<label for="exampleInputEmail1">Email address</label>-->
+          <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+          <!--<label for="exampleInputPassword1">Password</label>-->
+          <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+          <!--<button type="buton" class="btn btn-primary btn-block" (click)="emailSignIn()"style="margin-bottom: 20px">-->
+            <!--Login with Email-->
+          <!--</button>-->
+        <!--</div>-->
+
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <div class="row">
+<button type="button" class="btn btn-outline-primary my-1" (click)="twitterSignIn()">
+  <i class="fa fa-twitter" ></i>
+
+</button>
+
+  <button type="button" class="btn btn-outline-primary my-1" (click)="googleSignIn()">
+    <i class="fa fa-google"></i>
+
+  </button>
+
+  <button type="button" class="btn btn-outline-primary my-1" (click)="facebookSignIn()">
+    <i class="fa fa-facebook"></i>
+
+  </button>
+
+  </div>
+
 </div>
-  <form #authform = "ngForm"
-  (ngSubmit)="signOn()">
-    <label for="userid">User Name</label>
-    <input type="text" id="userid" name="username" class="form-control" [(ngModel)]="authform.username">
-    <label for="keyword">Password</label>
-    <input type="password" id="keyword" name="secretkey" class="form-control" [(ngModel)]="authform.secretkey">
-    <button type="submit" class="btn btn-outline-primary m-1">Submit</button>
-    <button type="reset" class="btn btn-outline-warning m-1">Reset</button>
-    <div class="row">
+<div *ngIf="isLoggedIn()">
+  <button type="button" class="btn btn-success"(click)="logout()">Logout</button>
+</div>
 
-      <!--<a href="#" class="nav-link">Twitter</a>-->
-      <!--<a href="#" class="nav-link">Facebook</a>-->
-      <!--<a href="#" class="nav-link">Yahoo</a>-->
-
-    </div>
-  </form>

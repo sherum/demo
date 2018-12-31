@@ -1,5 +1,10 @@
 <div *ngIf="show" class="card" [@sceneTrigger]>
-  <h4 class="card-title" bt-4>Scene Detail View</h4>
+  <h4 class="card-title" bt-4>Scene Detail View  </h4> <div class="card-subtitle">
+    <button *ngIf="!showThingButton" type="button" class="btn btn-outline-success" (click)="addThing(false)">Show Scenes</button>
+  <button *ngIf="showThingButton" type="button" class="btn btn-outline-success" (click)="addThing(true)">Add Driver</button>
+  </div>
+
+
   <button type="button" class="btn btn-primary"(click)="saveScene()">Update</button>
   <div class="card-body">
   <form #admin="ngForm">
@@ -33,23 +38,18 @@
         <textarea  class="form-control" id="purpose" name="purpose"  [(ngModel)]="scene.purpose"></textarea>
       </div>
     </div>
-
-
-    <section id="location">
-
-
-          <div class="row">
-
-
-              <label for="lid">Location Name</label>
-              <input type="text" class="form-control" id="lid" name="id" [(ngModel)] ="scene.location">
-
+    <div class="row py-4">
+      <div class="col-md-6">
+              <label for="location">Location Name</label>
+              <input type="text" class="form-control" id="location" name="location" [(ngModel)] ="scene.location.name">
           </div>
+      <div class="col-md-6">
+             <label for="people">People</label>
+             <input type="text" class="form-control" id="people" name="people" [(ngModel)] ="scene.people[0].name">
+         </div>
+    </div>
 
 
-
-
-    </section>
     <section class="row" id="narrative">
 
 

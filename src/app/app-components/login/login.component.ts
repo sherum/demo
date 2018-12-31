@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IAuth} from '../../story/shared/model/auth';
-import {AuthService} from './services/auth.service';
+import {OidcService} from '../../core/oidc.service';
+import {AuthService} from '../../story/shared/services/auth.service';
+import {AuthFireService} from '../../auth-fire.service';
 
 @Component({
   selector: 'app-login',
@@ -9,25 +11,39 @@ import {AuthService} from './services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  username: string='';
-  secretkey: string='';
+   loggedIn:boolean;
 
 
-  constructor(private loginService:AuthService) {
+  constructor(private oidcService:OidcService,
+              private authService:AuthService,
+              private fireService:AuthFireService) {
   }
 
   ngOnInit() {
+  //  this.loggedIn = this.oidcService.isLoggedIn();
   }
 
-  signOn(form) {
-    let auth: IAuth;
-    auth.name = form.username;
-    auth.key = form.secretkey;
-    if(auth.name && auth.key){
-      this.loginService.changeAuthorizedState(true);
-    }else{
-      this.loginService.changeAuthorizedState(false);
-    }
+  twitterSignIn(){
+    this.fireService.signInWithTwitter();
   }
 
+  googleSignIn(){
+    this.fireService.signInWithGoogle();
+  }
+
+  facebookSignIn(){
+    this.fireService.signInWithFacebook();
+  }
+
+  emailSignIn(){
+    this.fireService.signInWithEmail();
+  }
+
+  logout(){
+    this.fireService.logout();
+  }
+
+  isLoggedIn(){
+    this.fireService.isLoggedIn();
+  }
 }

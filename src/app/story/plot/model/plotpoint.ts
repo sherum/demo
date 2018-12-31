@@ -1,11 +1,13 @@
 export interface IPlotpoint {
 
-  id:number;
+
   sequence:number;
   name:string;
   thread:string;
-  follows:number
+
   description:string;
+  previous?:IPlotpoint;
+  _id?:any;
 }
 
 export const threads = [
@@ -19,4 +21,5 @@ export const threads = [
 export interface IPlotLine {
   name:string;
   points:IPlotpoint[];
+  _id?:any;
 }

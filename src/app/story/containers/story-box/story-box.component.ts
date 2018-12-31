@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {IStory} from '../../model/story';
 import {StoryService} from '../../services/story.service';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-story-box',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 export class StoryBoxComponent implements OnInit {
 
   storyList:IStory[];
+
   selectedStory:IStory = null;
   navbar:string = 'story'
 
@@ -86,9 +88,7 @@ export class StoryBoxComponent implements OnInit {
         this.storyService.newScene();
         this.router.navigate(['/story/scenes'])
         break;
-      case 'thing':
-        this.storyService.newThing();
-        break;
+
 
     }
 

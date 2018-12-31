@@ -3,10 +3,10 @@
   <thead>
   <tr>
 
-    <th scope="col">Sequence</th>
-    <th scope="col">Location</th>
-    <th scope="col">Start</th>
-    <th scope="col">Duration</th>
+    <th scope="col">Literary Purpose</th>
+    <th scope="col">Character Motivation</th>
+    <!--<th scope="col">Start</th>-->
+    <!--<th scope="col">Duration</th>-->
 
     <!--<th scope="col">Goal</th>-->
   </tr>
@@ -15,10 +15,10 @@
   <tr [class.selected]="scene === currentScene" *ngFor="let scene of sceneList"
       [@listTrigger]
       (click)="select(scene)">
-    <td>  {{scene.sequence}}</td>
-    <td>{{scene.location}}</td>
-    <td>  {{scene.start}}</td>
-    <td>{{scene.duration}} {{scene.unit}}</td>
+    <td> {{scene.sequence}}-- {{scene.purpose}}</td>
+    <td>{{scene.goal}}</td>
+    <!--<td>  {{scene.start}}</td>-->
+    <!--<td>{{scene.duration}} {{scene.unit}}</td>-->
     <td class="text-danger" (click)="delete(scene)">X</td>
 
 

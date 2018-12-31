@@ -1,9 +1,10 @@
 import {IScene} from '../scene/model/scene';
 import {IPlotLine, IPlotpoint} from '../plot/model/plotpoint';
 import {IThing} from '../thing/model/thing';
+import {IAccount} from '../shared/model/account';
 
 export interface IStory {
-  id:number;
+
    author:string;
    title:string;
    suppose:string;
@@ -12,10 +13,11 @@ export interface IStory {
    leadPov:string;
    scenes:Array<IScene>;
    plotPoints:Array<IPlotLine>;
-   people:Array<string>;
-   things:Array<IThing>;
-   events:Array<string>;
-   locations:Array<string>;
+  _id?:any;
+}
 
+export interface IPerson {
+    name:string;
+  _id?:any;
 
 }

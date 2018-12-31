@@ -49,6 +49,7 @@ export class StoryComponent implements OnInit {
 
 
   saveStory() {
-    this.storyService.saveStories();
+    //this.storyService.saveStories();
+    this.storyService.saveServiceStory(this.story);
   }
 }

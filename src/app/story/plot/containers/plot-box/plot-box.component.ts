@@ -41,26 +41,15 @@ export class PlotBoxComponent{
   }
   newPlot(plot:IPlotpoint){
     let newplot = {
-      id:100,
+
       sequence:plot.sequence+1,
       name:"new name",
       thread:plot.thread,
-      follows:plot.sequence,
       description: "new description"
     }
     this.pointList.points.push(newplot);
     this.selectedPlot = newplot;
   }
 
-  // addThread(){
-  //   let newthread = {
-  //     "id":100,
-  //     "sequence":0,
-  //     "name":'root name',
-  //     "description":"root description",
-  //     "follows":0,
-  //     "thread":"new thread"
-  //   }
-  //   this.pointList.push(newthread);
-  // }
+
 }

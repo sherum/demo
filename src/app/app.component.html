@@ -1,5 +1,102 @@
 <div class="container-fluid">
-  <app-nav  [loggedIn]="loggedIn" [home]="atHome"></app-nav>
+  <nav  *ngIf="!isLoggedIn()" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/']" >Writer Sauce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" >Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li  class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']" >About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/products']" >Products</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" [routerLink]="['/developer']" >Developer</a>
+        </li>
+
+
+        <!--<li  *ngIf="isLoggedIn()" class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/story']" >Story</a>-->
+        <!--</li>-->
+        <!--<li *ngIf="isLoggedIn()" class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/domain']" >Habitual Domains</a>-->
+        <!--</li>-->
+        <!--<li  *ngIf="isLoggedIn()" class="nav-item">-->
+        <!--<a class="nav-link" [routerLink]="['/lead']" >Lead Characters</a>-->
+        <!--</li>-->
+
+        <li   class="nav-item">
+          <a class="nav-link" [routerLink]="['/tos']" >Terms and Conditions</a>
+        </li>
+        <li   class="nav-item">
+          <a class="nav-link" [routerLink]="['/privacy']">Privacy</a>
+        </li>
+
+        <li    class="nav-item">
+          <a class="nav-link " [routerLink]="['/development']" >BETA RELEASE NOTICE</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </nav>
+  <hr>
+
+
+  <nav  *ngIf="isLoggedIn()" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/']" >Writer Sauce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="authnavbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" >Home <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li  class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']" >About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/products']" >Products</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" [routerLink]="['/developer']" >Developer</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/story']" >Story</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/domain']" >Habitual Domains</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link" [routerLink]="['/lead']" >Lead Characters</a>
+        </li>
+
+
+
+
+        <li  class="nav-item ml-4">
+          <a class="nav-link"  >ACTIVE USER: {{userName}}</a>
+        </li>
+      </ul>
+
+      <button class="btn btn-danger" type="button"(click)="logout()">Logout</button>
+
+    </div>
+  </nav>
+  <hr>
+
 </div>
 <div class="container">
   <router-outlet></router-outlet>

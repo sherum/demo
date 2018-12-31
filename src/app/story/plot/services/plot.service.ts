@@ -29,11 +29,7 @@ export class PlotService {
     return color;
   }
 
-  generateId(list: IPlotpoint[]): number {
-    let points = list.sort((a, b) => a.id - b.id);
-    return points.pop().id + 1;
 
-  }
 
   generateNewPlotLine(currentPlotWeb: IPlotLine[]): IPlotLine {
     let plotpoint = this.generateNewPlot();
@@ -46,7 +42,6 @@ return newplotLine;
 
   generateNewPlot():IPlotpoint {
     let newplot = {
-      id: 100,
       sequence: 0,
       name: "new name",
       thread: 'new thread',

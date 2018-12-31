@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IScene} from '../model/scene';
+import {ILocation, IScene} from '../model/scene';
 import {ActivatedRoute, Router} from '@angular/router';
 import {StoryService} from '../../services/story.service';
-import {IStory} from '../../model/story';
+import {IPerson, IStory} from '../../model/story';
 
 @Component({
   selector: 'app-scene-box',
@@ -13,7 +13,7 @@ export class SceneBoxComponent implements OnInit {
 
   sceneList:IScene[] = null;
   selectedScene:IScene = null;
-  showNarrative:boolean = false;
+  showThings:boolean = false;
 
   constructor(private route:ActivatedRoute, private router:Router, private storyService:StoryService) { }
 
@@ -39,18 +39,20 @@ export class SceneBoxComponent implements OnInit {
 
 
   addScene(){
-    let newscene= {
-    id:0,
-    sequence:0,
-    purpose:'',
-    goal:'',
-    start:'',
-    duration:0,
-    unit:'',
-    location:'',
-    people:[''],
-    narrative:''
-    }
+    let newscene: { id: number; sequence: number; purpose: string; goal: string; start: string; duration: number; unit: string; location: ILocation; people: any; things: any[]; narrative: string };
+    newscene = {
+      id: 0,
+      sequence: 0,
+      purpose: '',
+      goal: '',
+      start: '',
+      duration: 0,
+      unit: '',
+      location:{name:''},
+      people:[],
+      things: [],
+      narrative: ''
+    };
     this.sceneList.push(newscene);
     
   }
@@ -70,8 +72,21 @@ export class SceneBoxComponent implements OnInit {
 
   }
 
-  toggleNarrative(){
-    this.showNarrative = !this.showNarrative;
+  addThing(val){
+
+    this.showThings = val;
+    if(val) {
+
+      let thing = {
+        "id": 0,
+        "name": 'name',
+        "description": "description",
+        "location": "location"
+      }
+      this.selectedScene.things.push(thing);
+    }
+
+
 
   }
 

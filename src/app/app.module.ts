@@ -18,6 +18,17 @@ import {HabitualDomainComponent} from './habitualdomain/habitual-domain/habitual
 import { SelectedHighlightDirective } from './story/directive/selected-highlight.directive';
 import {StoryShedComponent} from './story/containers/story-shed/story-shed.component';
 import {SharedModule} from './story/shared/shared.module';
+import { DevelopmentComponent } from './app-components/development/development.component';
+import { TosComponent } from './app-components/tos/tos.component';
+import { PrivacyComponent } from './app-components/privacy/privacy.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInteceptor} from './auth.inteceptor';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AuthFireService} from './auth-fire.service';
+
 
 
 
@@ -30,7 +41,15 @@ export const routes:Routes =[
   { path:'story', component:StoryBoxComponent},
   { path:'lead', component:LeadPovComponent},
   { path:'domain', component:HabitualDomainComponent},
+  { path:'domain', component:HabitualDomainComponent},
+  { path:'development', component:DevelopmentComponent},
+  { path:'tos', component:TosComponent},
+  { path:'privacy', component:PrivacyComponent},
+
+
+
   { path:'', redirectTo:'home' , pathMatch:'full'},
+
   { path:'**', component:PageNotFoundComponent}
   ]
 
@@ -45,19 +64,29 @@ export const routes:Routes =[
     HomeComponent,
     LoginComponent,
     SelectedHighlightDirective,
+    DevelopmentComponent,
+    TosComponent,
+    PrivacyComponent,
+    AppNavComponent
 
 
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes,{enableTracing:true}),
+    AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+    RouterModule.forRoot(routes,{enableTracing:false}),
    HabitualDomainModule,
     StoryModule,
     LeadPovModule,
-    SharedModule
+    SharedModule,
+
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
 
   ],
-  providers: [],
+  providers: [
+    AuthFireService,
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInteceptor,multi:true}],
   bootstrap: [AppComponent],
   exports: []
 })

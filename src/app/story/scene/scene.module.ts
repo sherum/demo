@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { SceneNavComponent } from './components/scene-nav/scene-nav.component';
 import {TextareaExpandedComponent,EPANDED_TEXTAREA_VALUE_ACCESSOR} from './components/textarea-expanded/textarea-expanded.component';
 import {SharedModule} from '../shared/shared.module';
+import {ThingModule} from '../thing/thing.module';
 
 
 
@@ -19,6 +20,7 @@ export const routes:Routes =[
 @NgModule({
   imports: [
     SharedModule,
+    ThingModule,
     RouterModule.forChild(routes)
   ],
   declarations: [SceneComponent, SceneListComponent, SceneBoxComponent,  SceneNavComponent,TextareaExpandedComponent],

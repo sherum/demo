@@ -28,10 +28,13 @@ export const routes:Routes =[
      { path:'', redirectTo:'list', pathMatch:'full'},
     { path:'list', component:StoryListComponent},
     { path:'detail', component:StoryComponent},
-    { path:'scenes', component:SceneBoxComponent},
+    { path:'scenes', component:SceneBoxComponent,
+    children:[
+      { path:'drivers', component:ThingBoxComponent}
+
+    ]},
     { path:'plot', component:PlotShedComponent},
     { path:'narrative', component:NarrativeBoxComponent},
-    { path:'drivers', component:ThingBoxComponent}
 
   ]},
 
@@ -44,7 +47,6 @@ export const routes:Routes =[
     RouterModule.forChild(routes),
     PlotModule,
     SceneModule,
-    ThingModule,
     FormsModule,
     NarrativeModule,
     SharedModule,

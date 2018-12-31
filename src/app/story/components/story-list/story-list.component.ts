@@ -4,6 +4,7 @@ import {StoryService} from '../../services/story.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {relativeToRootDirs} from '@angular/compiler-cli/src/transformers/util';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-story-list',
@@ -22,7 +23,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
 export class StoryListComponent implements OnInit{
 
   @Input() storyList:IStory[];
-
+  stories$:Observable<IStory[]>;
   @Output() createStory:EventEmitter<any> = new EventEmitter();
 
   currentStory:IStory =null;
@@ -38,6 +39,9 @@ export class StoryListComponent implements OnInit{
     this.storyService.storiesSourceChanges$.subscribe(
       selectedStory => this.currentStory = selectedStory
     )
+    // this.storyService.getServiceStories(token).subscribe(
+    //   stories => this.stories$ = stories
+    // )
   }
 
 
@@ -50,6 +54,7 @@ export class StoryListComponent implements OnInit{
     console.log("tStopry List TWO",this.currentStory);
 
   }
+
 
   newStory(){
     this.createStory.emit();
